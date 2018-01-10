@@ -10,13 +10,15 @@ export default class Popup extends Component {
         this.myPopup;
         this.closeButton;
         this.pos = 0;
-	this.animate = animate.bind(this);
+        this.togglePopupComponent = this.togglePopupComponent.bind(this);
+        this.animate = this.animate.bind(this);
     }
 
     togglePopupComponent(){
         this.popupBackground.classList.toggle('hide');
         this.myPopup.classList.toggle('zeroSize');
         this.pos = 0;
+        this.animate();
     }
 
     animate(){
@@ -42,33 +44,26 @@ export default class Popup extends Component {
 
     }
     componentDidMount(){
-        this.popupBackground = document.createElement('div');
-        this.popupBackground.setAttribute('class', 'popupBackgroundClass hide');
-
-        this.myPopup = document.createElement('div');
-        this.myPopup.setAttribute('style', 'width:0' );
-        this.myPopup.setAttribute('class', 'popupContentClass zeroSize');
-        this.myPopup.setAttribute('id', 'myPopupComponent');
-        this.myPopup.innerHTML = this.props.children.props.children;
-
-        this.closeButton = document.createElement('img');
-        this.closeButton.setAttribute('src', 'images/closeButton.svg');
-        this.closeButton.setAttribute('class', 'closeButtonImage');
-
-        this.popupBackground.appendChild(this.closeButton);
-
-        this.popupBackground.appendChild(this.myPopup);
         document.body.insertBefore(this.popupBackground, document.body.firstChild);
-
-
-        this.popupBackground.addEventListener('click', () => {
-           this.popupBackground.classList.toggle('hide');
-           this.myPopup.classList.toggle('zeroSize');
-        })
+    }
+    close = () => {
+        this.popupBackground.classList.toggle('hide');
+        this.myPopup.classList.toggle('zeroSize');
     }
     render(){
         return(
-            <div>{console.log('Popup Component Activated')}</div>
+            <div onClick={this.close} className='popupBackgroundClass hide'
+                 ref={ref => this.popupBackground = ref}>
+                    <div id='myPopupComponent'
+                         style={{width: 0}}
+                         className='popupContentClass zeroSize'
+                         ref={ref => this.myPopup = ref}>
+                            <img src='images/closeButton.svg' className='closeButtonImage'/>
+                                {this.props.children}
+                                <h1>Testing</h1>
+                                {console.log('Popup Component Activated')}
+                    </div>
+            </div>
         )
     }
 }

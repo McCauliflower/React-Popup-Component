@@ -1,1 +1,1 @@
-This module is still in the testing phase
+This module is still in development. 
