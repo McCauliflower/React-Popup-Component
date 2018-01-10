@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './popup.css';
+import './assets/styles/popup.css';
 
 export default class Popup extends Component {
     constructor(props) {
@@ -10,6 +10,7 @@ export default class Popup extends Component {
         this.myPopup;
         this.closeButton;
         this.pos = 0;
+	this.animate = animate.bind(this);
     }
 
     togglePopupComponent(){
@@ -18,7 +19,7 @@ export default class Popup extends Component {
         this.pos = 0;
     }
 
-    animate = () => {
+    animate(){
         let elem = document.querySelector('.popupContentClass');
         //resets the width and minHeight to the value of 'this.pos' (zero)
         elem.style.minHeight = this.pos;
