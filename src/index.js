@@ -11,7 +11,6 @@ export default class Popup extends Component {
         this.closeButton;
         this.pos = 0;
         this.togglePopupComponent = this.togglePopupComponent.bind(this);
-        this.animate = this.animate.bind(this);
     }
 
     togglePopupComponent(){
@@ -46,13 +45,13 @@ export default class Popup extends Component {
     componentDidMount(){
         document.body.insertBefore(this.popupBackground, document.body.firstChild);
     }
-    close = () => {
+    close(){
         this.popupBackground.classList.toggle('hide');
         this.myPopup.classList.toggle('zeroSize');
     }
     render(){
         return(
-            <div onClick={this.close} className='popupBackgroundClass hide'
+            <div onClick={this.close.bind(this)} className='popupBackgroundClass hide'
                  ref={ref => this.popupBackground = ref}>
                     <div id='myPopupComponent'
                          style={{width: 0}}
