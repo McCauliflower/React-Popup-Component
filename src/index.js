@@ -57,7 +57,7 @@ export default class Popup extends Component {
         return(
             <div onClick={this.close.bind(this)} className={`popupBackgroundClass-${this.which} hide`}>
                 <div id='myPopupComponent'
-                     style={{width: 0}}
+                     style={{width: 0, height: 0}}
                      className={`popupContentClass-${this.which}`} //zeroSize
                      ref={ref => this.myPopup = ref}>
                     <img src='images/closeButton.svg' className='closeButtonImage'/>
