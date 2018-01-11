@@ -2,7 +2,12 @@
   
 :black_square_button: **React Popup Component** is a simple animated popup that creates a wrapper component around your text and lets you pass down whatever content you wish inside props.children.
 
-:waning_gibbous_moon: Current status: **Beta**
+:waning_gibbous_moon: Current status: **BETA**
+
+
+:construction: CURRENTLY UNDER CONSTRUCTION :construction:
+Fixing some issues with the CSS
+
 
 # Installation
 
