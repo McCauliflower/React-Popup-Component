@@ -5,10 +5,6 @@
 :waning_gibbous_moon: Current status: **BETA**
 
 
-:construction: CURRENTLY UNDER CONSTRUCTION :construction:
-Fixing some issues with the CSS
-
-
 # Installation
 
 
