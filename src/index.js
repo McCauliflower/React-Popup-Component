@@ -18,7 +18,7 @@ export default class Popup extends Component {
     }
 
     openPopupComponent(which){
-        //note: the CSS only loops the .popupBackgroundClass(number) up to 10. If you need a higher number of popups with this you will have to modify the CSS
+        //note: the CSS only loops the .popupBackgroundClass(number) up to 25. If you need a higher number of popups with this you will have to modify the CSS
         this.which = which;
         //'which' refers to which props.children we want to work on
         this.popupBackground = document.querySelector(`.popupBackgroundClass-${this.which}`);
@@ -59,8 +59,8 @@ export default class Popup extends Component {
         return(
             <div onClick={(e)=>this.close(e)} className={`popupBackground popupBackgroundClass-${this.which} hide`}>
                 <div id='myPopupComponent'
-                     style={{width: this.props.width, height: '500px'}}
-                     className={`popupContentClass-${this.which}`} //zeroSize
+                     style={{width: this.props.width, height: this.props.height}}
+                     className={`popupContentClass-${this.which}`}
                      ref={ref => this.myPopup = ref}>
                     <img ref={ref => this.xButton = ref} src='images/closeButton.svg' className='closeButtonImage'/>
                     {this.props.children}
@@ -69,4 +69,8 @@ export default class Popup extends Component {
         )
     }
 }
+
+
+
+
 
