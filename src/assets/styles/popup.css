@@ -1,11 +1,11 @@
 
-
-.popupBackgroundClass-1, .popupBackgroundClass-2,.popupBackgroundClass-3,.popupBackgroundClass-4,.popupBackgroundClass-5,
+/*********************       REACT-POPUP-COMPONENT   ********************************/
+.popupBackgroundClass-0,.popupBackgroundClass-1, .popupBackgroundClass-2,.popupBackgroundClass-3,.popupBackgroundClass-4,.popupBackgroundClass-5,
 .popupBackgroundClass-6,.popupBackgroundClass-7,.popupBackgroundClass-8,.popupBackgroundClass-9,
 .popupBackgroundClass-10,.popupBackgroundClass-11,.popupBackgroundClass-12,.popupBackgroundClass-13,.popupBackgroundClass-14,.popupBackgroundClass-15,
 .popupBackgroundClass-16,.popupBackgroundClass-17,.popupBackgroundClass-18,.popupBackgroundClass-19,.popupBackgroundClass-20,
 .popupBackgroundClass-21,.popupBackgroundClass-22,.popupBackgroundClass-23,.popupBackgroundClass-24,.popupBackgroundClass-25{
-  background: rgba(0,0,0,.5);
+  background: rgba(0,0,0,.4);
   height: 100%;
   overflow: hidden;
   position: fixed;
@@ -14,10 +14,10 @@
   left: 0;
   right: 0;
   transition: all .4s ease;
+  z-index:999;
 }
 
-
-.popupContentClass-1,.popupContentClass-2,.popupContentClass-3,.popupContentClass-4,.popupContentClass-5,.popupContentClass-6,.popupContentClass-7,
+.popupContentClass-0,.popupContentClass-1,.popupContentClass-2,.popupContentClass-3,.popupContentClass-4,.popupContentClass-5,.popupContentClass-6,.popupContentClass-7,
 .popupContentClass-8,.popupContentClass-9,.popupContentClass-10,.popupContentClass-11,.popupContentClass-12,.popupContentClass-13,.popupContentClass-14,
 .popupContentClass-15,.popupContentClass-16,.popupContentClass-17,.popupContentClass-18,.popupContentClass-19,.popupContentClass-20,.popupContentClass-21,
 .popupContentClass-22,.popupContentClass-23,.popupContentClass-24,.popupContentClass-25{
@@ -29,4 +29,23 @@
   transition: all .4s ease;
   border-radius: 20px;
   padding: 20px;
+}
+.hide{
+  display:none !important;
+}
+.zeroSize{
+  height: 0px;
+  width: 0px;
+}
+.closeButtonImage{
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+#myPopupComponent{
+  background: #d8d8d8;
 }
