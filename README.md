@@ -1,14 +1,8 @@
-<p align="center">
-  <b>React Popup Component</b>
-  <i>A simple animated popup component for react</i>
-</p>
-<p align="center">
+# react-popup-component
   
-:zap: **React Popup Component** is a simple animated popup that creates a wrapper component around your text and lets you pass down whatever content you wish inside props.children.
+:black_square_button: **React Popup Component** is a simple animated popup that creates a wrapper component around your text and lets you pass down whatever content you wish inside props.children.
 
-:construction: **currently under construction** :construction:
-
-:partly_sunny: Current status: **alpha**
+:waning_gibbous_moon: Current status: **Beta**
 
 # Installation
 
