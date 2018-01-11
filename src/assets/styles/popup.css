@@ -1,5 +1,11 @@
 
-.popupBackgroundClass{
+
+/* todo : add scss support to wepack so we can use a for loop instead of writing out each number indiviudally */
+.popupBackgroundClass-1, .popupBackgroundClass-2,.popupBackgroundClass-3,.popupBackgroundClass-4,.popupBackgroundClass-5,
+.popupBackgroundClass-6,.popupBackgroundClass-7,.popupBackgroundClass-8,.popupBackgroundClass-9,
+.popupBackgroundClass-10,.popupBackgroundClass-11,.popupBackgroundClass-12,.popupBackgroundClass-13,.popupBackgroundClass-14,.popupBackgroundClass-15,
+.popupBackgroundClass-16,.popupBackgroundClass-17,.popupBackgroundClass-18,.popupBackgroundClass-19,.popupBackgroundClass-20,
+.popupBackgroundClass-21,.popupBackgroundClass-22,.popupBackgroundClass-23,.popupBackgroundClass-24,.popupBackgroundClass-25,{
   background: rgba(0,0,0,.5);
   height: 100%;
   overflow: hidden;
@@ -10,7 +16,12 @@
   right: 0;
   transition: all .4s ease;
 }
-.popupContentClass{
+
+
+.popupContentClass-1,.popupContentClass-2,.popupContentClass-3,.popupContentClass-4,.popupContentClass-5,.popupContentClass-6,.popupContentClass-7,
+.popupContentClass-8,.popupContentClass-9,.popupContentClass-10,.popupContentClass-11,.popupContentClass-12,.popupContentClass-13,.popupContentClass-14,
+.popupContentClass-15,.popupContentClass-16,.popupContentClass-17,.popupContentClass-18,.popupContentClass-19,.popupContentClass-20,.popupContentClass-21,
+.popupContentClass-22,.popupContentClass-23,.popupContentClass-24,.popupContentClass-25,{
   margin: auto;
   height: auto;
   overflow: hidden;

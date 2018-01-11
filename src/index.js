@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './assets/styles/popup.css';
 
 export default class Popup extends Component {
     constructor(props) {
@@ -11,9 +10,14 @@ export default class Popup extends Component {
         this.closeButton;
         this.pos = 0;
         this.togglePopupComponent = this.togglePopupComponent.bind(this);
+        this.which = this.props.which || '1';
     }
 
-    togglePopupComponent(){
+    togglePopupComponent(which){
+        //note: the CSS only loops the .popupBackgroundClass(number) up to 10. If you need a higher number of popups with this you will have to modify the CSS
+        this.which = which;
+        //'which' refers to which props.children we want to work on
+        this.popupBackground = document.querySelector(`.popupBackgroundClass-${this.which}`);
         this.popupBackground.classList.toggle('hide');
         this.myPopup.classList.toggle('zeroSize');
         this.pos = 0;
@@ -21,7 +25,8 @@ export default class Popup extends Component {
     }
 
     animate(){
-        let elem = document.querySelector('.popupContentClass');
+        //set elem to the class that was passed down with the variable 'which'
+        let elem = document.querySelector(`.popupContentClass-${this.which}`);
         //resets the width and minHeight to the value of 'this.pos' (zero)
         elem.style.minHeight = this.pos;
         elem.style.width = this.pos;
@@ -33,17 +38,16 @@ export default class Popup extends Component {
                 clearInterval(id);
             } else {
                 this.pos = this.pos + 10;
-                console.log('this.pos', this.pos);
-
                 elem.style.width = this.pos + 'px';
-                console.log('elem.style.top = pos + \'px\';', elem.style.width);
                 elem.style.minHeight = this.pos + 'px';
             }
         }, 5);
 
     }
     componentDidMount(){
-        document.body.insertBefore(this.popupBackground, document.body.firstChild);
+        //in case no specific popup was passed down with 'which', it defaults to 1 on mount
+        this.popupBackground = document.querySelector(`.popupBackgroundClass-${this.which}`);
+        // document.body.insertBefore(this.popupBackground, document.body.firstChild);
     }
     close(){
         this.popupBackground.classList.toggle('hide');
@@ -51,19 +55,17 @@ export default class Popup extends Component {
     }
     render(){
         return(
-            <div onClick={this.close.bind(this)} className='popupBackgroundClass hide'
-                 ref={ref => this.popupBackground = ref}>
-                    <div id='myPopupComponent'
-                         style={{width: 0}}
-                         className='popupContentClass zeroSize'
-                         ref={ref => this.myPopup = ref}>
-                            <img src='images/closeButton.svg' className='closeButtonImage'/>
-                                {this.props.children}
-                                <h1>Testing</h1>
-                                {console.log('Popup Component Activated')}
-                    </div>
+            <div onClick={this.close.bind(this)} className={`popupBackgroundClass-${this.which} hide`}>
+                <div id='myPopupComponent'
+                     style={{width: 0}}
+                     className={`popupContentClass-${this.which}`} //zeroSize
+                     ref={ref => this.myPopup = ref}>
+                    <img src='images/closeButton.svg' className='closeButtonImage'/>
+                    {this.props.children}
+                </div>
             </div>
         )
     }
 }
+
 
