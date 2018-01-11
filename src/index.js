@@ -24,8 +24,6 @@ export default class Popup extends Component {
         this.popupBackground = document.querySelector(`.popupBackgroundClass-${this.which}`);
         //make sure it exists
 
-        console.log('this.popupBackground', this.popupBackground);
-
         (this.popupBackground) ? this.popupBackground.classList.remove('hide') : null;
 
         //this ensures that when a popup is opened by another popup, then all open popups that are not supposed to be active are closed
@@ -35,11 +33,8 @@ export default class Popup extends Component {
         for(let i=0; i<allBackgrounds.length; i++){
             let _current = `.popupBackgroundClass-${which}`;
             let _test = `.popupBackgroundClass-${i}`;
-
-            console.log('i', i);
-
-            console.log(`.popupBackgroundClass-${i}`);
-            console.log('test', _test);
+            // console.log(`.popupBackgroundClass-${i}`);
+            // console.log('test', _test);
             (_current !== _test) ? document.querySelector(`.popupBackgroundClass-${i}`).classList.add('hide') : null;
         }
     }
@@ -48,24 +43,17 @@ export default class Popup extends Component {
         //in case no specific popup was passed down with 'which', it defaults to 1 on mount
         this.popupBackground = document.querySelector(`.popupBackgroundClass-${this.which}`);
         // document.body.insertBefore(this.popupBackground, document.body.firstChild);
-
-        let instances = document.querySelectorAll(`.popupBackgroundClass-${this.which}`);
-        console.log('instances', instances);
     }
     close(e){
 
-        //e.target === this.popupBackground || e.target === this.xButton
-        //to allows for things suc has inputs or clickable events inside of the component, we only close the popup if the background or the 'X' button is clicked
+        //to allows for things such has inputs or clickable events inside of the component, we only close the popup if the background or the 'X' button is clicked
+        if(e.target === this.popupBackground || e.target === this.xButton){
+            let instances = document.querySelectorAll(`.popupBackgroundClass-${this.which}`);
 
-        let instances = document.querySelectorAll(`.popupBackgroundClass-${this.which}`);
-        console.log('instances', instances);
-
-        for(let i=0; i<instances.length; i++){
-            instances[i].classList.add('hide');
+            for(let i=0; i<instances.length; i++){
+                instances[i].classList.add('hide');
+            }
         }
-
-        //turned off while the animator is turned off
-        // this.myPopup.classList.toggle('zeroSize');
     }
     render(){
         return(
@@ -81,5 +69,4 @@ export default class Popup extends Component {
         )
     }
 }
-
 

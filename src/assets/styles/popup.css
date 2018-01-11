@@ -33,10 +33,6 @@
 .hide{
   display:none !important;
 }
-.zeroSize{
-  height: 0px;
-  width: 0px;
-}
 .closeButtonImage{
   height: 40px;
   width: 40px;
