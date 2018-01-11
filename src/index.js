@@ -10,6 +10,7 @@ export default class Popup extends Component {
         this.closeButton;
         this.pos = 0;
         this.togglePopupComponent = this.togglePopupComponent.bind(this);
+        this.close = this.close.bind(this);
         this.which = this.props.which || '1';
     }
 
@@ -49,23 +50,24 @@ export default class Popup extends Component {
         this.popupBackground = document.querySelector(`.popupBackgroundClass-${this.which}`);
         // document.body.insertBefore(this.popupBackground, document.body.firstChild);
     }
-    close(){
-        this.popupBackground.classList.toggle('hide');
-        this.myPopup.classList.toggle('zeroSize');
+    close(e){
+        //to allows for things suc has inputs or clickable events inside of the component, we only close the popup if the background or the 'X' button is clicked
+        if(e.target === this.popupBackground || e.target === this.xButton) {
+            this.popupBackground.classList.toggle('hide');
+            this.myPopup.classList.toggle('zeroSize');
+        }
     }
     render(){
         return(
-            <div onClick={this.close.bind(this)} className={`popupBackgroundClass-${this.which} hide`}>
+            <div onClick={(e)=>this.close(e)} className={`popupBackgroundClass-${this.which} hide`}>
                 <div id='myPopupComponent'
                      style={{width: 0, height: 0}}
                      className={`popupContentClass-${this.which}`} //zeroSize
                      ref={ref => this.myPopup = ref}>
-                    <img src='images/closeButton.svg' className='closeButtonImage'/>
+                    <img ref={ref => this.xButton = ref} src='images/closeButton.svg' className='closeButtonImage'/>
                     {this.props.children}
                 </div>
             </div>
         )
     }
 }
-
-
