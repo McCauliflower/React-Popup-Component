@@ -25,13 +25,13 @@ import Popup from 'react-popup-component';
 
 Next, you will need to add the method to your class. 
 ```js
-togglePopupComponent = (which) => {
-    this.popup.togglePopupComponent(which);
+openPopupComponent = (which) => {
+    this.popup.openPopupComponent(which);
 }
 ```
 **NOTE: This component will ONLY work with an ES6 Class because of its reliance on props.children and refs**
 
-Lastly, you will need to make an instance of the component, and for every instance you will need to have a corresponding onClick event to toggle that specific component. The specific popup you are targeting is passed down as an argument in the togglePopupComponent method, starting with 0.
+Lastly, you will need to make an instance of the component, and for every instance you will need to have a corresponding onClick event to toggle that specific component. The specific popup you are targeting is passed down as an argument in the openPopupComponent method, starting with 0.
 
 For example:
 
