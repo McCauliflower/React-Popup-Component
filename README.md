@@ -36,13 +36,18 @@ Lastly, you will need to make an instance of the component inside your render() 
 For example:
 
 ```js
-  //button that opens popup '0'
- <button onClick={(which) => this.openPopupComponent(0)}>OPEN</button>
- 
- //note that the first instance's 'which' variable is 0 and counts upward
-<Popup which='0' ref={popup => this.popup = popup} width='400px' height='auto'>
-    <h1>Anything you wish.</h1>
-</Popup>
+
+   render() {
+        return (
+            //button that opens popup '0'
+           <button onClick={(which) => this.openPopupComponent(0)}>OPEN</button>
+
+           //note that the first instance's 'which' variable is 0 and counts upward
+          <Popup which='0' ref={popup => this.popup = popup} width='400px' height='auto'>
+              <h1>Anything you wish.</h1>
+          </Popup>
+          )
+        }
 ```
 
 
