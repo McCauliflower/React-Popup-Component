@@ -37,7 +37,7 @@ For example:
 
 ```js
 
- <button onClick={(which) => this.togglePopupComponent(0)}>OPEN</button>
+ <button onClick={(which) => this.openPopupComponent(0)}>OPEN</button>
  //note that the first instance's 'which' variable is 0 and counts upward
 <Popup which='0' ref={popup => this.popup = popup} width='400px' height='auto'>
     <h1>Anything you wish.</h1>
@@ -48,7 +48,7 @@ For example:
 Make sure to mark the appropriate 'which' prop that you attached to each component instance. Our second popup component, for example, would be 
 
 ```js
-<button onClick={(which) => this.togglePopupComponent(1)}>OPEN </button>
+<button onClick={(which) => this.openPopupComponent(1)}>OPEN </button>
 
 <Popup which='1' ref={popup => this.popup = popup} width='400px' height='auto'>
     <h1>Popup Component Numero Dos</h1>
