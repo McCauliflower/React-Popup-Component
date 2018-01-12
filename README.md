@@ -23,11 +23,13 @@ yarn add react-popup-component
 import Popup from 'react-popup-component';
 ```
 
-Next, you will need to add the method to your class. 
+Next, you will need to add the method inside your class. 
 ```js
-openPopupComponent = (which) => {
-    this.popup.openPopupComponent(which);
-}
+
+    openPopupComponent = (which) => {
+        this.popup.openPopupComponent(which);
+    }
+
 ```
 **NOTE: This component will not work with a stateless functional component as it relies on props.children and refs**
 
