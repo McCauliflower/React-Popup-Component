@@ -31,13 +31,14 @@ openPopupComponent = (which) => {
 ```
 **NOTE: This component will ONLY work with an ES6 Class because of its reliance on props.children and refs**
 
-Lastly, you will need to make an instance of the component, and for every instance you will need to have a corresponding onClick event to toggle that specific component. The specific popup you are targeting is passed down as an argument in the openPopupComponent method, starting with 0.
+Lastly, you will need to make an instance of the component inside your render() function, and for every popup instance you will need to have a corresponding onClick event that will toggle that specific component. The specific popup you are targeting is passed down as an argument in the openPopupComponent method, starting with 0.
 
 For example:
 
 ```js
-
+  //button that opens popup '0'
  <button onClick={(which) => this.openPopupComponent(0)}>OPEN</button>
+ 
  //note that the first instance's 'which' variable is 0 and counts upward
 <Popup which='0' ref={popup => this.popup = popup} width='400px' height='auto'>
     <h1>Anything you wish.</h1>
