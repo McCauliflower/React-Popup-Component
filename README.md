@@ -29,7 +29,7 @@ openPopupComponent = (which) => {
     this.popup.openPopupComponent(which);
 }
 ```
-**NOTE: This component will ONLY work with an ES6 Class because of its reliance on props.children and refs**
+**NOTE: This component will not work with a stateless functional component as it relies on props.children and refs**
 
 Lastly, you will need to make an instance of the component inside your render() function, and for every popup instance you will need to have a corresponding onClick event that will toggle that specific component. The specific popup you are targeting is passed down as an argument in the openPopupComponent method, starting with 0.
 
