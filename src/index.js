@@ -56,6 +56,7 @@ export default class Popup extends Component {
     }
     close(e){
 
+        console.log('e.target is', e.target);
         //to allows for things such has inputs or clickable events inside of the component, we only close the popup if the background or the 'X' button is clicked
         if(e.target === this.popupBackground || e.target === this.xButton){
             let instances = document.querySelectorAll(`.popupBackgroundClass-${this.which}`);
