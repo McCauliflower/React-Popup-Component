@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './assets/styles/popup.css';
+import Close from './assets/images/closeButton.js';
 
 export default class Popup extends Component {
     constructor(props) {
@@ -72,7 +73,7 @@ export default class Popup extends Component {
                      style={{width: this.props.width, height: this.props.height}}
                      className={`popupContentClass-${this.which}`}
                      ref={ref => this.myPopup = ref}>
-                    <img ref={ref => this.xButton = ref} src='assets/images/closeButton.svg' className='closeButtonImage'/>
+                    <Close ref={ref => this.xButton = ref} className='closeButtonImage'/>
                     {this.props.children}
                 </div>
             </div>
