@@ -72,7 +72,7 @@ export default class Popup extends Component {
                      style={{width: this.props.width, height: this.props.height}}
                      className={`popupContentClass-${this.which}`}
                      ref={ref => this.myPopup = ref}>
-                    <img ref={ref => this.xButton = ref} src='assets/closeButton.svg' className='closeButtonImage'/>
+                    <img ref={ref => this.xButton = ref} src='assets/images/closeButton.svg' className='closeButtonImage'/>
                     {this.props.children}
                 </div>
             </div>
