@@ -57,8 +57,12 @@ export default class Popup extends Component {
     close(e){
 
         console.log('e.target is', e.target);
+        let insideElement0 = document.querySelector('.svgCloseButtonItemInside0');
+        let insideElement1 = document.querySelector('.svgCloseButtonItemInside1');
+        let insideElement2 = document.querySelector('.svgCloseButtonItemInside2');
+
         //to allows for things such has inputs or clickable events inside of the component, we only close the popup if the background or the 'X' button is clicked
-        if(e.target === this.popupBackground || e.target === this.xButton){
+        if(e.target === this.popupBackground || e.target === this.xButton || e.target === insideElement0 || e.target === insideElement1 || e.target === insideElement2){
             let instances = document.querySelectorAll(`.popupBackgroundClass-${this.which}`);
             for(let i=0; i<instances.length; i++){
                 instances[i].classList.add('hide');
