@@ -40,6 +40,9 @@
   right: 20px;
   top: 20px;
   cursor: pointer;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 #myPopupComponent{
