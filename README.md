@@ -63,6 +63,11 @@ Make sure to mark the appropriate 'which' prop that you attached to each compone
 </Popup>
 ```
 
+Escape Hatch Note: If you have buttons or other interactive elements inside your component and wish to close it upon clicking them, you can simply target the class directly and add the 'hide' class to it.
+For example, to close a popup with the property 'which=0', you would just 
+```js
+        document.querySelector('.popupBackgroundClass-0').classList.add('hide');
+```
 
 # TODO
 
