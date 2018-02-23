@@ -32,10 +32,10 @@ export default class Popup extends Component {
         //this ensures that when a popup is opened by another popup, then all open popups that are not supposed to be active are closed
 
         let allBackgrounds = document.querySelectorAll('.popupBackground');
-        console.log('allBackgrounds', allBackgrounds);
+        // console.log('allBackgrounds', allBackgrounds);
 
         for(let i=0; i<allBackgrounds.length; i++){
-            console.log('I in openPopup fn', i);
+            // console.log('I in openPopup fn', i);
             let _current = `.popupBackgroundClass-${which}`;
             let _test = `.popupBackgroundClass-${i}`;
             // console.log(`.popupBackgroundClass-${i}`);
@@ -56,7 +56,7 @@ export default class Popup extends Component {
     }
     close(e){
 
-        console.log('e.target is', e.target);
+        // console.log('e.target is', e.target);
         let insideElement0 = document.querySelector('.svgCloseButtonItemInside0');
         let insideElement1 = document.querySelector('.svgCloseButtonItemInside1');
         let insideElement2 = document.querySelector('.svgCloseButtonItemInside2');
@@ -70,8 +70,6 @@ export default class Popup extends Component {
         }
     }
     render(){
-
-        {console.log('this.props.which', this.props.which)}
         return(
             <div onClick={(e)=>this.close(e)} className={`popupBackground popupBackgroundClass-${this.props.which} hide`}>
                 <div id='myPopupComponent'
@@ -85,8 +83,3 @@ export default class Popup extends Component {
         )
     }
 }
-
-
-
-
-
