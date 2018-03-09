@@ -69,6 +69,10 @@ export default class Popup extends Component {
             }
         }
     }
+    closePopups = () => {
+      let backgroundz = document.querySelectorAll('.popupBackground');
+      backgroundz.forEach((background) => background.classList.add('hide'));
+    }
     render(){
         return(
             <div onClick={(e)=>this.close(e)} className={`popupBackground popupBackgroundClass-${this.props.which} hide`}>
@@ -76,7 +80,7 @@ export default class Popup extends Component {
                      style={{width: this.props.width, height: this.props.height}}
                      className={`popupContentClass-${this.which}`}
                      ref={ref => this.myPopup = ref}>
-                    <Close ref={ref => this.xButton = ref} className='closeButtonImage'/>
+                    <Close onClick={this.closePopups} ref={ref => this.xButton = ref} className='closeButtonImage'/>
                     {this.props.children}
                 </div>
             </div>
