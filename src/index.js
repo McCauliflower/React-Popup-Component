@@ -15,6 +15,7 @@ export default class Popup extends Component {
         this.pos = 0;
         this.openPopupComponent = this.openPopupComponent.bind(this);
         this.close = this.close.bind(this);
+        this.closePopupz = this.closePopupz.bind(this);
     }
 
     openPopupComponent(which){
@@ -49,7 +50,7 @@ export default class Popup extends Component {
     }
 
     componentDidMount(){
-
+        this.closePopupz;
         //in case no specific popup was passed down with 'which', it defaults to 1 on mount
         this.popupBackground = document.querySelector(`.popupBackgroundClass-${this.which}`);
         // document.body.insertBefore(this.popupBackground, document.body.firstChild);
@@ -69,9 +70,17 @@ export default class Popup extends Component {
             }
         }
     }
-    closePopups(){
-      let backgroundz = document.querySelectorAll('.popupBackground');
-      backgroundz.forEach((background) => background.classList.add('hide'));
+    closePopupz = () => {
+        let closes = document.querySelectorAll('.closeButton');
+        closes.forEach((x =>
+                x.addEventListener('click', () => {
+                    console.log('close listener fired');
+                    let backgrounds = document.querySelectorAll('.popupBackground');
+                    backgrounds.forEach((background) => background.classList.add('hide'));
+                    let anyOthers = document.querySelector(`popupBackgroundClass-${this.props.which}`);
+                    anyOthers.classList.add('hide');
+                })
+        ))
     }
     render(){
         return(
@@ -80,7 +89,7 @@ export default class Popup extends Component {
                      style={{width: this.props.width, height: this.props.height}}
                      className={`popupContentClass-${this.which}`}
                      ref={ref => this.myPopup = ref}>
-                    <Close onClick={this.closePopups.bind(this)} ref={ref => this.xButton = ref} className='closeButtonImage'/>
+                    <Closeref={ref => this.xButton = ref} className='closeButtonImage'/>
                     {this.props.children}
                 </div>
             </div>
