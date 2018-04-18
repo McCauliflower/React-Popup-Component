@@ -72,14 +72,18 @@ export default class Popup extends Component {
     }
     closePopupz(){
         let closes = document.querySelectorAll('.closeButton');
-        closes.forEach((x =>
-                x.addEventListener('click', () => {
-                    console.log('close listener fired');
-                    let backgrounds = document.querySelectorAll('.popupBackground');
-                    backgrounds.forEach((background) => background.classList.add('hide'));
-                    let anyOthers = document.querySelector(`popupBackgroundClass-${this.props.which}`);
-                    anyOthers.classList.add('hide');
-                })
+        closes.forEach((x => {
+          try{
+            x.addEventListener('click', () => {
+                console.log('close listener fired');
+                let backgrounds = document.querySelectorAll('.popupBackground');
+                backgrounds.forEach((background) => background.classList.add('hide'));
+                let anyOthers = document.querySelector(`popupBackgroundClass-${this.props.which}`);
+                anyOthers.classList.add('hide');
+            })
+          }
+          catch(err){}
+        }
         ))
     }
     render(){
