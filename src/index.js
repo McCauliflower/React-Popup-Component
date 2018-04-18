@@ -50,7 +50,7 @@ export default class Popup extends Component {
     }
 
     componentDidMount(){
-        this.closePopupz;
+        this.closePopupz();
         //in case no specific popup was passed down with 'which', it defaults to 1 on mount
         this.popupBackground = document.querySelector(`.popupBackgroundClass-${this.which}`);
         // document.body.insertBefore(this.popupBackground, document.body.firstChild);
